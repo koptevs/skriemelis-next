@@ -2,8 +2,8 @@ type User = {
     id: string;
     name: string;
     email: string;
-    password: string;
-};
+    image_url: string;
+}[];
 
 const customers: User = [
     {
