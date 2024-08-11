@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
+// /** @type {import('tailwindcss').Config} */ - shadcn
 const { fontFamily } = require("tailwindcss/defaultTheme");
-// /** @type {import('tailwindcss').Config} */
 
 const config = {
     darkMode: ["class"],
@@ -81,6 +81,14 @@ const config = {
         },
     },
     plugins: [require("tailwindcss-animate")],
+    // plugins: [
+    //     forms,
+    //     require("tailwindcss-animate"),
+    //     plugin(function ({ addVariant }) {
+    //         addVariant("group-open", ":merge(.group).open &");
+    //         addVariant("peer-open", ":merge(.peer).open ~ &");
+    //     }),
+    // ],
 } satisfies Config;
 
 export default config;
