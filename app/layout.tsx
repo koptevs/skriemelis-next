@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
 
+import {
+    ClerkProvider,
+    SignInButton,
+    SignedIn,
+    SignedOut,
+    UserButton,
+} from "@clerk/nextjs";
+
 import "./globals.css";
 
 const inter = Inter({
@@ -24,19 +32,29 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="dark">
-            {/* <body className={inter.className}>{children}</body> */}
-            <body
-                // className={`${inter.className} ${inter.variable} ${playfair_display.variable}`}
-                className={cn(
-                    "min-h-screen bg-background font-inter antialiased",
-                    inter.className,
-                    inter.variable,
-                    playfair_display.variable
-                )}
-            >
-                {children}
-            </body>
-        </html>
+        <ClerkProvider>
+            {/* <html lang="en"> */}
+            <html lang="en" className="dark">
+                {/* <body className={inter.className}>{children}</body> */}
+                <body
+                    // className={`${inter.className} ${inter.variable} ${playfair_display.variable}`}
+                    className={cn(
+                        "min-h-screen bg-background font-inter antialiased",
+                        inter.className,
+                        inter.variable,
+                        playfair_display.variable
+                    )}
+                >
+                    {" "}
+                    <SignedOut>
+                        <SignInButton />
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                    {children}
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
