@@ -35,7 +35,24 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <ClerkProvider>
+        <ClerkProvider
+            appearance={{
+                elements: {
+                    headerTitle: "text-lg pb-2 text-indigo-600 uppercase",
+                    headerSubtitle:
+                        "text-[10px] pb-2 font-semibold text-indigo-600 uppercase",
+                    socialButtonsBlockButton: "",
+                    socialButtonsBlockButtonText: "font-bold text-indigo-700",
+                    socialButtonsProviderIcon: "",
+                    dividerText: "text-indigo-700",
+                    formFieldLabelRow: "flex justify-center",
+                    formFieldLabel: "text-indigo-700 tracking-4",
+                    formButtonPrimary:
+                        "bg-gradient-to-r from-violet-700 to-indigo-600", // "bg-slate-500 hover:bg-slate-400 text-sm",
+                    footerActionLink: "text-indigo-700", // Sign up text
+                },
+            }}
+        >
             {/* <html lang="en"> */}
             <html lang="en" className="dark">
                 {/* <body className={inter.className}>{children}</body> */}
