@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/context/theme-provider";
 
-import {
-    ClerkProvider,
-    SignInButton,
-    SignedIn,
-    SignedOut,
-    UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -65,14 +61,15 @@ export default function RootLayout({
                         playfair_display.variable
                     )}
                 >
-                    {" "}
-                    <SignedOut>
-                        <SignInButton />
-                    </SignedOut>
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
-                    {children}
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="dark"
+                        // enableSystem
+                        disableTransitionOnChange
+                    >
+                        <Navbar />
+                        {children}
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>
