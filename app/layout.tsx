@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/context/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
-import Navbar from "@/components/navbar";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -55,7 +54,7 @@ export default function RootLayout({
                 <body
                     // className={`${inter.className} ${inter.variable} ${playfair_display.variable}`}
                     className={cn(
-                        "min-h-screen bg-background font-inter antialiased",
+                        "min-h-screen font-inter antialiased",
                         inter.className,
                         inter.variable,
                         playfair_display.variable
@@ -67,7 +66,6 @@ export default function RootLayout({
                         // enableSystem
                         disableTransitionOnChange
                     >
-                        <Navbar />
                         {children}
                     </ThemeProvider>
                 </body>
