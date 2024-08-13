@@ -14,10 +14,17 @@ const config = {
     theme: {
         container: {
             center: true,
-            padding: "2rem",
-            screens: {
-                "2xl": "1400px",
+            padding: {
+                DEFAULT: "1rem",
+                sm: "2rem",
+                md: "3rem",
+                lg: "4rem",
+                xl: "5rem",
+                "2xl": "6rem",
             },
+            // screens: {
+            //     "2xl": "1400px",
+            // },
         },
         extend: {
             fontFamily: {
@@ -25,6 +32,7 @@ const config = {
                 "playfair-display": "var(--font-playfair-display)",
             },
             colors: {
+                eme: "hsl(var(--eme))",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
