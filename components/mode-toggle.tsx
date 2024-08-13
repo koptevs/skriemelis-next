@@ -11,9 +11,10 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 export function ModeToggle() {
-    const { setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     return (
         <DropdownMenu>
@@ -33,23 +34,29 @@ export function ModeToggle() {
             >
                 <DropdownMenuItem
                     onClick={() => setTheme("light")}
-                    className="flex w-full justify-between px-3"
+                    className={cn("flex w-full justify-between px-3", {
+                        "bg-slate-300/30": theme === "light",
+                    })}
                 >
-                    <SunIcon className="h-[1rem] w-[1rem] rotate-0 transition-all dark:-rotate-90 md:h-[1.2rem] md:w-[1.2rem]" />
+                    <SunIcon className="h-[1rem] w-[1rem] transition-all md:h-[1.2rem] md:w-[1.2rem]" />
                     <span>Light</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme("dark")}
-                    className="flex w-full justify-between px-3"
+                    className={cn("flex w-full justify-between px-3", {
+                        "bg-slate-300/30": theme === "dark",
+                    })}
                 >
                     <MoonIcon className="h-[1rem] w-[1rem] rotate-90 transition-all dark:rotate-0 md:h-[1.2rem] md:w-[1.2rem]" />
                     <span>Dark</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
                     onClick={() => setTheme("system")}
-                    className="flex w-full justify-between px-3"
+                    className={cn("flex w-full justify-between px-3", {
+                        "bg-slate-300/30": theme === "system",
+                    })}
                 >
-                    <Computer className="h-[1rem] w-[1rem] rotate-90 transition-all dark:rotate-0 md:h-[1.2rem] md:w-[1.2rem]" />
+                    <Computer className="h-[1rem] w-[1rem] transition-all md:h-[1.2rem] md:w-[1.2rem]" />
                     System
                 </DropdownMenuItem>
             </DropdownMenuContent>
