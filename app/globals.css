@@ -4,8 +4,8 @@
 
 @layer base {
     :root {
-        /* hsl(220 50% 30%) */
-        --iky: 220 100% 50%;
+        /* hsl(220 70% 30%) */
+        --iky: 220 70% 30%;
         --background: 0 0% 100%;
         --foreground: 222.2 84% 4.9%;
         --card: 0 0% 100%;
@@ -34,6 +34,8 @@
     }
 
     .dark {
+        /* hsl(220 70% 60%) */
+        --iky: 220 100% 50%;
         --background: 222.2 84% 4.9%;
         --foreground: 210 40% 98%;
         --card: 222.2 84% 4.9%;
@@ -77,5 +79,11 @@
     }
     h2 {
         @apply text-[calc(33px+(26-14)*((100vw-300px)/(1600-300)))] font-bold; /* 48px - 5XL*/
+    }
+}
+
+@layer components {
+    .ikystyle {
+        @apply rounded-xl bg-iky p-6 text-7xl font-bold text-background;
     }
 }
