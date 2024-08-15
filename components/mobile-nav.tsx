@@ -1,17 +1,15 @@
 import React from "react";
 import Image from "next/image";
+
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
     SheetClose,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
-import { ModeToggle } from "./mode-toggle";
+
 import {
     SignedIn,
     SignedOut,
@@ -20,26 +18,7 @@ import {
     UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
-
-const NavContent = () => {
-    return (
-        <div className="mt-8 flex flex-col items-center justify-between gap-8">
-            <SheetClose asChild>
-                <Link className="" href="/">
-                    Home
-                </Link>
-            </SheetClose>
-            <SheetClose asChild>
-                <Link className="" href="/landing">
-                    Landing
-                </Link>
-            </SheetClose>
-            <SheetClose asChild>
-                <ModeToggle />
-            </SheetClose>
-        </div>
-    );
-};
+import NavContent from "./nav-content";
 
 const MobileNav = () => {
     return (
@@ -71,7 +50,7 @@ const MobileNav = () => {
                     <SheetClose asChild>
                         <NavContent />
                     </SheetClose>
-                    <div className="mt-3 flex flex-col gap-3">
+                    <div className="mt-7 flex flex-col gap-3">
                         <SignedOut>
                             <SheetClose asChild>
                                 <Button
